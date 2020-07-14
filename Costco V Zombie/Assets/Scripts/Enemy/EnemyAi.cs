@@ -7,6 +7,7 @@ public class EnemyAi : MonoBehaviour
     public GameObject Target;
 
     public int Health = 1;
+    public int scorValue = 1;
     private int StartHealth;
     public bool Dead = false;
 
@@ -18,6 +19,7 @@ public class EnemyAi : MonoBehaviour
     void Start()
     {
         StartHealth = Health;
+        Target = PlayerController.instance.gameObject;
     }
 
     // Update is called once per frame

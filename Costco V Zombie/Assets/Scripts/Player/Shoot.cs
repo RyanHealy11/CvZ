@@ -17,21 +17,29 @@ public class Shoot : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) 
-        {
-            Debug.Log("FIRE!!");
+        {            
             RaycastHit hit;
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
-            if(Physics.Raycast(ray,out hit)) 
+            if (Physics.Raycast(ray, out hit))
             {
                 if (hit.transform.gameObject.TryGetComponent(out EnemyAi bob))
                 {
                     bob.Health--;
-                    if (bob.Health <= 0) 
+                    if (bob.Health <= 0)
                     {
-                        score.curScore++;                    
+                        score.curScore += (bob.scorValue * score.multiplier);
                     }
-                }                                
+                    score.multiplier++;
+                }
+                else
+                {
+                    score.multiplier = 1;
+                }
+            }
+            else 
+            {
+                score.multiplier = 1;
             }
         }        
     }

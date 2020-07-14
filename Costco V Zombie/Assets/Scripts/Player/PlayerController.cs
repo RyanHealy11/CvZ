@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    #region
+    public static PlayerController instance;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+    #endregion
     public float speed = 1;
     // Start is called before the first frame update
     void Start()
