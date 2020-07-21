@@ -8,6 +8,7 @@ public class EnemyAi : MonoBehaviour
 
     public int Health = 1;
     public int scorValue = 1;
+    public int moneyValue = 1;
     private int StartHealth;
     public bool Dead = false;
 
